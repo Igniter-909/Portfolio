@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, ReactNode, MouseEvent } from 'react'
 import { TiLocationArrow } from 'react-icons/ti';
 
 interface BentoCardProps {
@@ -7,33 +7,41 @@ interface BentoCardProps {
     description: string;
 }
 
-const BentoTilt = ({ children, className = ''}) => {
+interface BentoTiltProps {
+    children: ReactNode;
+    className?: string;
+}
 
-    const [transformStyle,setTransformStyle] = useState("");
-    const itemRef = useRef(null);
+const BentoTilt = ({ children, className = '' }: BentoTiltProps) => {
+    const [transformStyle, setTransformStyle] = useState<string>("");
+    const itemRef = useRef<HTMLDivElement | null>(null);
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if(!itemRef.current) return;
 
         const { left, top, width, height } = itemRef.current.getBoundingClientRect();
         const relativeX = (e.clientX - left)/width;
         const relativeY = (e.clientY - top)/height;
 
-
         const tiltX = (relativeY - 0.5) * 5;
         const tiltY = (relativeX - 0.5) * -5;
-        const newTransform  = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.95,0.95,0.95)`
+        
+        const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
         setTransformStyle(newTransform);
     }
 
     const handleMouseLeave = () => {
-        setTransformStyle("")
+        setTransformStyle("");
     }
 
-
-
     return (
-        <div className={className} ref={itemRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{transform: transformStyle}}>
+        <div 
+            className={`transition-transform duration-200 ease-out ${className}`} 
+            ref={itemRef} 
+            onMouseMove={handleMouseMove} 
+            onMouseLeave={handleMouseLeave} 
+            style={{ transform: transformStyle }}
+        >
             {children}
         </div>
     )
