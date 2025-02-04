@@ -15,6 +15,8 @@ body {
   font-family: "General Sans", sans-serif;
 }
 
+
+
 @layer base {
   @font-face {
     font-family: "circular-web";
@@ -59,14 +61,53 @@ body {
     @apply flex justify-center items-center;
   }
 
+  .flip-card {
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
   .mask-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+
+  .animate-earth-spin {
+    animation: spin 10s linear infinite;
   }
 
   .special-font b {
     font-family: "Zentry";
     font-feature-settings: "ss01" on;
   }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .about-box-line {
+    fill: none;
+    stroke: rgb(0, 183, 255);
+    stroke-width: 2;
+}
 
   .hero-heading {
     @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
@@ -270,4 +311,35 @@ body {
     transform: translateY(66%) scale(0.65);
     opacity: 0.8;
   }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Timeline styles */
+.vertical-timeline.vertical-timeline--two-columns::before {
+  background: rgb(33, 150, 243);
+}
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px rgb(33, 150, 243), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.vertical-timeline::before {
+  background: rgb(33, 150, 243) !important;
+  width: 3px !important;
+}
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px rgb(33, 150, 243), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.vertical-timeline-element-content {
+  box-shadow: 0 3px 0 rgb(33, 150, 243) !important;
 }
