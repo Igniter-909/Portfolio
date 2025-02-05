@@ -98,7 +98,7 @@ const ExperienceCard = ({ experience }:any) => {
           <Date>{experience?.date}</Date>
         </Body>
       </Top>
-      <Description>
+      <div className="w-full text-[8px] sm:text-base font-general text-white mb-2 sm:mb-4">
         {experience?.desc && <Span>{experience.desc}</Span>}
         {experience?.skills && (
           <>
@@ -125,7 +125,7 @@ const ExperienceCard = ({ experience }:any) => {
           </>
 
         )}
-      </Description>
+      </div>
  </>
     
   );

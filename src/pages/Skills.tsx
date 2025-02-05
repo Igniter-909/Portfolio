@@ -37,7 +37,7 @@ const Skills = () => {
     <section
       ref={sectionRef}
       id="Skills"
-      className="h-screen bg-[#09152f] text-white relative overflow-hidden px-20 flex flex-col"
+      className="h-screen bg-[#09152f] text-white relative overflow-hidden px-20 py-20 sm:py-0 flex flex-col"
     >
       <StarryBackground />
       <motion.div
@@ -46,12 +46,12 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
         className="flex flex-col items-center justify-center w-full h-1/3"
       >
-        <h1 className="font-zentry font-extrabold text-white text-6xl">
+        <h1 className="font-zentry font-extrabold text-white text-3xl md:text-6xl">
           {inView && (
             <Typewriter words={["My Skills"]} cursor cursorStyle="|" typeSpeed={90} />
           )}
         </h1>
-        <p className="text-lg text-neutral-400 sm:text-base pt-4">
+        <p className="text-xs text-neutral-400 sm:text-base pt-4">
           Here are some of my skills that I have been working on for the past 3 years.
         </p>
       </motion.div>
@@ -62,11 +62,10 @@ const Skills = () => {
           ref={scrollRef}
           className="flex gap-6 scrollbar-hide whitespace-nowrap"
         >
-          {/* Duplicate the skills array to create a seamless loop */}
           {[...skills, ...skills].map((skill, index) => (
             <Tilt key={`skill-${index}`}>
               <div
-                className="min-w-[400px] max-w-[750px] h-[300px] border border-[rgba(255,255,255,0.125)] 
+                className="min-w-[300px] sm:min-w-[400px] max-w-[750px] h-[300px] border border-[rgba(255,255,255,0.125)] 
                   shadow-[0px_4px_24px_rgba(23,92,230,0.15)] rounded-[16px] p-[18px_36px] flex flex-col justify-between scroll-m-0"
               >
                 <div className="text-xl font-semibold">{skill.title}</div>
@@ -74,7 +73,7 @@ const Skills = () => {
                   {skill.skills.map((item, index_x) => (
                     <div
                       key={`skill-x-${index_x}`}
-                      className="text-[14px] font-normal text-[rgba(var(--text-primary),0.8)] 
+                      className="text-[10px] sm:text-[14px] font-normal text-[rgba(var(--text-primary),0.8)] 
                       border border-[rgba(var(--text-primary),0.8)] rounded-[12px] p-[8px_12px] 
                       flex items-center justify-center gap-2"
                     >
@@ -82,7 +81,7 @@ const Skills = () => {
                         src={item.image}
                         alt={item.name}
                         effect="blur"
-                        className="w-[20px] h-[20px]"
+                        className="w-[15px] sm:w-[20px] h-[15px] sm:h-[20px]"
                       />
                       {item.name}
                     </div>

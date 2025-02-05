@@ -15,25 +15,25 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#09152f] text-white py-8 px-4">
+    <footer className="w-full bg-[#09152f] text-white py-2 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-6">
           
-          <h3 className="text-2xl font-bold mb-4">Let's Connect!</h3>
+          <h3 className="text-sm sm:text-2xl font-bold mb-0 sm:mb-4">Let's Connect!</h3>
           
           <div className="flex flex-wrap justify-center gap-6">
             <a 
               href="https://www.linkedin.com/in/your-profile" 
               target="_blank"
               rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-blue-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-blue-500"
             >
               <FaLinkedin />
             </a>
 
             <a 
               href="mailto:your-email@example.com"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-red-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-red-500"
             >
               <FaEnvelope />
             </a>
@@ -42,7 +42,7 @@ const Footer = () => {
               href="https://discord.com/users/your-id"
               target="_blank" 
               rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-indigo-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-indigo-500"
             >
               <FaDiscord />
             </a>
@@ -51,14 +51,14 @@ const Footer = () => {
               href="https://instagram.com/your-profile"
               target="_blank"
               rel="noopener noreferrer" 
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-pink-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-pink-500"
             >
               <FaInstagram />
             </a>
 
             <a 
               href="tel:+1234567890"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-green-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-green-500"
             >
               <FaPhone />
             </a>
@@ -67,7 +67,7 @@ const Footer = () => {
               href="https://leetcode.com/your-profile"
               target="_blank"
               rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-orange-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-orange-500"
             >
               <SiLeetcode />
             </a>
@@ -75,14 +75,14 @@ const Footer = () => {
               href="https://codechef.com/users/your-profile"
               target="_blank"
               rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200 text-2xl hover:text-purple-500"
+              className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-purple-500"
             >
               <SiCodechef />
             </a>
           </div>
 
 
-          <div className="mt-6 text-center text-sm text-gray-400">
+          <div className="mt-6 text-center text-xs sm:text-sm text-gray-400">
             <p>© {new Date().getFullYear()} Roshan Kumar Sahu. All rights reserved.</p>
           </div>
 

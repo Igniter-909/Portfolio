@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { TbCircleDottedLetterR } from "react-icons/tb";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
-const navList = ["Home", "About","Skills" ,"Projects","Experience", "Contact"];
+const navList = ["About","Skills" ,"Projects","Experience", "Contact"];
 
 const Navbar = () => {
 
@@ -26,8 +26,8 @@ const Navbar = () => {
     <div className={`fixed inset-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex gap-2 text-xl text-white font-circular-web items-center justify-center cursor-pointer group overflow-hidden relative w-[250px]">
-            <TbCircleDottedLetterR className="text-4xl" />
+          <div className="flex gap-2 text-xs lg:text-xl text-white font-circular-web items-center justify-center cursor-pointer group overflow-hidden relative w-[250px]">
+            <TbCircleDottedLetterR className="text-4xl" onClick={() => window.location.href = "/"} />
             <div className="relative w-[200px] h-[24px] overflow-hidden text-white">
               <span className="absolute left-0 top-0 w-full transition-transform duration-700 ease-in-out group-hover:-translate-x-full">
                 Design by Roshan
@@ -57,7 +57,11 @@ const Navbar = () => {
                     {item}
                 </a>
               </div>
+
+
+
             ))}
+
           </div>
 
           {/* Mobile Menu */}
