@@ -122,7 +122,7 @@ const About = () => {
               containerClass="!bg-yellow-300 flex-center gap-2 w-full sm:w-auto"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1KzyiLlzd-tEMoRYUMuYu_MT_2RqLD2WA/view?usp=sharing",
+                  "https://drive.google.com/file/d/1Pk5NXCGgSIw_BtuURbFtg0lEM5riFDth/view?usp=sharing",
                   "_blank",
                 )
               }
