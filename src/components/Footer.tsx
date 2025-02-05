@@ -1,16 +1,5 @@
-import { FaDiscord, FaTwitter, FaYoutube, FaMedium, FaInstagram, FaPhone, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaPhone, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode, SiCodechef } from "react-icons/si";
-
-const socialLinks = [
-  { href: "https://discord.com", icon: <FaDiscord /> },
-  { href: "https://twitter.com", icon: <FaTwitter /> },
-  { href: "https://youtube.com", icon: <FaYoutube /> },
-  { href: "https://medium.com", icon: <FaMedium /> },
-  { href: "https://instagram.com", icon: <FaInstagram /> },
-  { href: "https://leetcode.com", icon: <SiLeetcode /> },
-  { href: "https://codechef.com", icon: <SiCodechef /> },
-];
-
 
 
 const Footer = () => {
@@ -23,7 +12,7 @@ const Footer = () => {
           
           <div className="flex flex-wrap justify-center gap-6">
             <a 
-              href="https://www.linkedin.com/in/your-profile" 
+              href="https://www.linkedin.com/in/roshan-kumar-sahu-60069628a" 
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-blue-500"
@@ -32,7 +21,7 @@ const Footer = () => {
             </a>
 
             <a 
-              href="mailto:your-email@example.com"
+              href="mailto:igniterofficial909505@example.com"
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-red-500"
             >
               <FaEnvelope />
@@ -48,7 +37,7 @@ const Footer = () => {
             </a>
 
             <a 
-              href="https://instagram.com/your-profile"
+              href="https://instagram.com/ignit_r"
               target="_blank"
               rel="noopener noreferrer" 
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-pink-500"
@@ -57,22 +46,23 @@ const Footer = () => {
             </a>
 
             <a 
-              href="tel:+1234567890"
+              href="tel:+918102051183"
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-green-500"
             >
               <FaPhone />
             </a>
 
             <a 
-              href="https://leetcode.com/your-profile"
+              href="https://leetcode.com/u/Igniter01/"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-orange-500"
+
             >
               <SiLeetcode />
             </a>
             <a
-              href="https://codechef.com/users/your-profile"
+              href="https://www.codechef.com/users/ignit_r"
               target="_blank"
               rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200 text-sm sm:text-2xl hover:text-purple-500"
