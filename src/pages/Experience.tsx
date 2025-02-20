@@ -19,12 +19,60 @@ interface Experience {
   img: string;
 }
 
-interface ExperienceTimelineProps {
+const MobileExperience: React.FC<{
   experiences: Experience[];
   selectedExperience: Experience;
   setSelectedExperience: (exp: Experience) => void;
   isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
+  setIsOpen: (value: boolean) => void;
+}> = ({ experiences, selectedExperience, setSelectedExperience, isOpen, setIsOpen }) => {
+  return (
+    <div className="relative md:hidden w-full">
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-2 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex justify-between items-center shadow-lg hover:shadow-xl transition-all duration-300"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <div>
+          <h3 className="text-base font-semibold">{selectedExperience.company}</h3>
+          <p className="hidden sm:block text-sm text-gray-200">{selectedExperience.date}</p>
+        </div>
+        <ChevronDown className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+      </motion.button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-10 w-full mt-2 bg-gray-800 rounded-xl shadow-lg max-h-60 overflow-y-auto"
+          >
+            {experiences.map((exp, index) => (
+              <motion.button
+                key={index}
+                onClick={() => {
+                  setSelectedExperience(exp)
+                  setIsOpen(false)
+                }}
+                className={`w-full p-4 text-left transition-colors ${
+                  selectedExperience === exp
+                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                    : "text-gray-300 hover:bg-gray-700"
+                }`}
+                whileHover={{ backgroundColor: selectedExperience === exp ? "#4f46e5" : "#374151" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <h3 className="text-base font-semibold">{exp.company}</h3>
+                <p className="text-sm">{exp.date}</p>
+              </motion.button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
 }
 
 const Experience = () => {
@@ -71,7 +119,7 @@ const Experience = () => {
         </motion.p>
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
           {isMobile ? (
-            <ExperienceDropdown
+            <MobileExperience
               experiences={experiences}
               selectedExperience={selectedExperience}
               setSelectedExperience={setSelectedExperience}
@@ -91,56 +139,6 @@ const Experience = () => {
         </div>
       </div>
     </section>
-  )
-}
-
-function ExperienceDropdown({ experiences, selectedExperience, setSelectedExperience, isOpen, setIsOpen }) {
-  return (
-    <div className="relative w-full md:w-1/3 mb-0">
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-2 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex justify-between items-center shadow-lg hover:shadow-xl transition-all duration-300"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <div>
-          <h3 className="text-base font-semibold">{selectedExperience.company}</h3>
-          <p className="hidden sm:block text-sm text-gray-200">{selectedExperience.date}</p>
-        </div>
-        <ChevronDown className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute z-10 w-full mt-2 bg-gray-800 rounded-xl shadow-lg max-h-60 overflow-y-auto"
-          >
-            {experiences.map((exp, index) => (
-              <motion.button
-                key={index}
-                onClick={() => {
-                  setSelectedExperience(exp)
-                  setIsOpen(false)
-                }}
-                className={`w-full p-4 text-left transition-colors ${
-                  selectedExperience === exp
-                    ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-                    : "text-gray-300 hover:bg-gray-700"
-                }`}
-                whileHover={{ backgroundColor: selectedExperience === exp ? "#4f46e5" : "#374151" }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <h3 className="text-base font-semibold">{exp.company}</h3>
-                <p className="text-sm">{exp.date}</p>
-              </motion.button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
   )
 }
 
