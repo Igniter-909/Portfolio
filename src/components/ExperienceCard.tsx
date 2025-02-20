@@ -8,19 +8,13 @@ const Top = styled.div`
   max-width: 100%;
   gap: 12px;
 `;
-const Image = styled.img`
-  height: 50px;
-  border-radius: 10px;
-  margin-top: 4px;
-  @media only screen and (max-width: 768px) {
-    height: 40px;
-  }
-`;
+
 const Body = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
+
 const Role = styled.div`
   font-size: 18px;
   font-family: 'circular web';
@@ -50,17 +44,6 @@ const Date = styled.div`
   }
 `;
 
-const Description = styled.div`
-  width: 100%;
-  font-size: 15px;
-  font-family: 'general';
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 99};
-  margin-bottom: 10px;
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
-  }
-`;
 const Skills = styled.div`
   width: 100%;
   display: flex;

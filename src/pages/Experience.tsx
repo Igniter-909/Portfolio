@@ -27,8 +27,8 @@ interface ExperienceTimelineProps {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-export default function Experience() {
-  const [selectedExperience, setSelectedExperience] = useState(experiences[0])
+const Experience = () => {
+  const [selectedExperience, setSelectedExperience] = useState<Experience>(experiences[0])
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const { ref: sectionRef, inView } = useInView({
@@ -144,10 +144,14 @@ function ExperienceDropdown({ experiences, selectedExperience, setSelectedExperi
   )
 }
 
-function ExperienceTimeline({ experiences, selectedExperience, setSelectedExperience }) {
+const ExperienceTimeline: React.FC<{
+  experiences: Experience[];
+  selectedExperience: Experience;
+  setSelectedExperience: (exp: Experience) => void;
+}> = ({ experiences, selectedExperience, setSelectedExperience }) => {
   return (
     <div className="hidden md:flex flex-col space-y-4 w-1/3">
-      {experiences.map((exp, index) => (
+      {experiences.map((exp: Experience, index: number) => (
         <motion.button
           key={index}
           onClick={() => setSelectedExperience(exp)}
@@ -166,4 +170,6 @@ function ExperienceTimeline({ experiences, selectedExperience, setSelectedExperi
     </div>
   )
 }
+
+export default Experience
 
