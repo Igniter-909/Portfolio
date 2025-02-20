@@ -9,6 +9,24 @@ import StarryBackground from "../components/StarryBackground"
 import { Typewriter } from "react-simple-typewriter"
 import { ChevronDown } from "lucide-react"
 
+interface Experience {
+  id: number;
+  company: string;
+  role: string;
+  date: string;
+  desc: string;
+  skills: string[];
+  img: string;
+}
+
+interface ExperienceTimelineProps {
+  experiences: Experience[];
+  selectedExperience: Experience;
+  setSelectedExperience: (exp: Experience) => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
 export default function Experience() {
   const [selectedExperience, setSelectedExperience] = useState(experiences[0])
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
