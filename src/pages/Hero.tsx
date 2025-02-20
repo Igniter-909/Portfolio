@@ -51,9 +51,11 @@ const Hero = () => {
     return (
         <div className="relative min-h-screen pt-20 bg-[#09152f]" style={{
             backgroundImage: "url('/img/meeeee.png')",
-            backgroundSize: "cover", // Adjust the zoom level
-            backgroundPosition: "center", // Center the zoomed image
-            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover", // Changed to cover for more zoom
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",      
+            backgroundAttachment: "fixed",
+            transform: "scale(1.2)", // Added zoom effect
         }}>
 
             <StarryBackground />
