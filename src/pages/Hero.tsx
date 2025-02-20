@@ -53,9 +53,7 @@ const Hero = () => {
             backgroundImage: "url('/img/meeeee.png')",
             backgroundSize: "cover", // Changed to cover for more zoom
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",      
-            backgroundAttachment: "fixed",
-            transform: "scale(1.2)", // Added zoom effect
+            backgroundRepeat: "no-repeat",       // Added zoom effect
         }}>
 
             <StarryBackground />
