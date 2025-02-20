@@ -64,8 +64,8 @@ interface Project {
           "Projects Showcase",
           "Responsive & Interactive"
         ],
-        githubLink: "",
-        liveLink: ""
+        githubLink: "https://github.com/Igniter-909/Portfolio",
+        liveLink: "https://www.roshan909.live/"
       }
     ],
     "Machine Learning": [
